@@ -1,37 +1,69 @@
 {
-  "name": "gbt7000",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  "name": "@hyperlane-xyz/helloworld",
+  "description": "A basic skeleton of an Hyperlane app",
+  "version": "1.2.3",
   "dependencies": {
-    "@moralisweb3/next": "^2.17.0",
-    "@types/node": "18.15.5",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "eslint": "8.36.0",
-    "eslint-config-next": "13.2.4",
-    "moralis": "^2.17.0",
-    "next": "^13.2.4",
-    "next-auth": "^4.20.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "5.0.2"
+    "@hyperlane-xyz/sdk": "1.2.3",
+    "@openzeppelin/contracts-upgradeable": "^4.8.0",
+    "ethers": "^5.7.2"
   },
-  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
-  "main": "next.config.js",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@typechain/ethers-v5": "10.0.0",
+    "@typechain/hardhat": "^6.0.0",
+    "@types/mocha": "^9.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "chai": "^4.3.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "ethereum-waffle": "^3.4.4",
+    "hardhat": "^2.8.4",
+    "hardhat-gas-reporter": "^1.0.7",
+    "prettier": "^2.4.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.5",
+    "solhint": "^3.3.2",
+    "solhint-plugin-prettier": "^0.0.5",
+    "solidity-coverage": "^0.7.14",
+    "ts-node": "^10.8.0",
+    "typechain": "8.0.0",
+    "typescript": "^4.7.2"
+  },
+  "files": [
+    "/dist",
+    "/contracts"
+  ],
+  "homepage": "https://www.hyperlane.xyz",
+  "keywords": [
+    "Hyperlane",
+    "HelloWorld",
+    "Solidity",
+    "Typescript"
+  ],
+  "license": "Apache-2.0",
+  "main": "dist/src/index.js",
+  "packageManager": "yarn@3.2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OurHonestReaction/GBT7000.git"
+    "url": "https://github.com/hyperlane-xyz/hyperlane-app-template"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/OurHonestReaction/GBT7000/issues"
+  "scripts": {
+    "build": "hardhat compile && tsc",
+    "clean": "hardhat clean && rm -rf dist cache src/types",
+    "coverage": "hardhat coverage",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --write ./contracts ./src",
+    "test": "hardhat test ./src/test/**/*.test.ts",
+    "sync": "ts-node scripts/sync-with-template-repo.ts"
   },
-  "homepage": "https://github.com/OurHonestReaction/GBT7000#readme"
+  "types": "dist/src/index.d.ts",
+  "resolutions": {
+    "underscore": "^1.13",
+    "fetch-ponyfill": "^7.1",
+    "lodash": "^4.17.21",
+    "async": "^2.6.4",
+    "undici": "^5.11"
+  }
 }
